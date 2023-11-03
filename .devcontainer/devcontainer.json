@@ -1,0 +1,25 @@
+{
+	"name": "Existing Dockerfile",
+	"build": {
+		"context": "..",
+		"dockerfile": "./Dockerfile"
+	},
+	"mounts": [
+		"source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind"
+	],
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"files.encoding": "utf8",
+				"editor.tabSize": 2
+			},
+			"extensions": [
+				"mhutchie.git-graph",
+				"ms-vscode.vscode-typescript-next",
+				"dbaeumer.vscode-eslint",
+				"expo.vscode-expo-tools",
+				"msjsdiag.vscode-react-native"
+			]
+		}
+	}
+}
