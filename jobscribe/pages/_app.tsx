@@ -8,6 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>JobScribe</title>
         <meta name="description" content="時間を記録して効率よくtoDoをこなすお手伝い!" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Component {...pageProps} />
     </>
