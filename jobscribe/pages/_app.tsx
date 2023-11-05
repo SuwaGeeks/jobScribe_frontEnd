@@ -1,3 +1,5 @@
+import { Inter } from 'next/font/google'
+const inter = Inter({ subsets: ['latin'] })
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
@@ -11,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="description" content="時間を記録して効率よくtoDoをこなすお手伝い!" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Container>
+      <Container className={inter.className} >
         <Component {...pageProps} />
       </Container>
     </>
