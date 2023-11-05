@@ -15,14 +15,17 @@ export default function Todo() {
 
   const [minutes, setMinutes] = useState(25)
   const [seconds, setSeconds] = useState(0)
+  let tmpSecond = seconds;
   const [timerId, setTimerId] = useState(0)
 
   const countDown = () => {
-    if (seconds == 0) {
+    if (tmpSecond == 0) {
       setMinutes(minute => minute - 1)
       setSeconds(59)
+      tmpSecond = 59
     } else {
       setSeconds(second => second - 1)
+      tmpSecond--
     }
   }
 
@@ -37,7 +40,7 @@ export default function Todo() {
 
   return (
     <Main>
-      <Header title="<Todo名>" handleBack={() => router.push('/todo')}/>
+      <Header title="ハッカソンを無事終える!" handleBack={() => router.push('/todo')}/>
       <Container>
         <TaskHeader>現在のTask</TaskHeader>
         <TodoCard task="ハッカソンを無事終える!" />
@@ -66,7 +69,7 @@ const Main = styled.main`
 `
 
 const Container = styled.div`
-  margin: 0.5em 1em;
+  margin: 2em 1em 0 1em;
 `
 
 const TaskHeader = styled.div`
