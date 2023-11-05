@@ -1,0 +1,28 @@
+name: EC2 auto deploy
+
+on:
+ pull_request:
+   branches: [ main ]
+   types: [ closed ]
+
+ workflow_dispatch:
+
+jobs:
+ build:
+   runs-on: ubuntu-latest
+
+   steps:
+     # BranchをCheckout
+     - name: Checkout
+       uses: actions/checkout@v2
+
+     # デプロイする
+     - name: Deploy
+       uses: appleboy/ssh-action@master
+       with:
+          host: ${{ secrets.EC2_HOST_NAME }}
+          username: ${{ secrets.EC2_USER_NAME }}
+          key: ${{ secrets.GIT_PRIVATE_KEY }}
+          script: |
+            cd /home/ubuntu/develop/JobScribe/frontend
+            git pull origin main
