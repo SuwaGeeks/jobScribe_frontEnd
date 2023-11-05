@@ -39,6 +39,7 @@ const HeaderTitle = styled.h3`
 
 const ActionWrap = styled.div`
   width: 10%;
+  max-width: 50px;
   height: 100%;
 `
 const BackButtom = styled.span`
